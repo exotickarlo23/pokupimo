@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prijevoz namještaja Zagreb | Dostava s Njuškala i IKEA-e | Pokupi</title>
+  <meta name="description" content="Kupio si nešto na Njuškalu ili u IKEA-i? Pokupimo i donesemo po Zagrebu od 45 €. Cijena odmah, rezervacija online.">
+  <link rel="canonical" href="https://pokupimo.com/">
+  <meta name="theme-color" content="#0A1838">
+
+  <!-- Open Graph / dijeljenje -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="hr_HR">
+  <meta property="og:site_name" content="Pokupi">
+  <meta property="og:url" content="https://pokupimo.com/">
+  <meta property="og:title" content="Ti kupiš. Mi pokupimo. | Kombi prijevoz Zagreb">
+  <meta property="og:description" content="Kupio si nešto na Njuškalu ili u IKEA-i? Pokupimo i donesemo po Zagrebu od 45 €. Cijena odmah, rezervacija online.">
+  <meta property="og:image" content="https://pokupimo.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fontovi su self-hostani (bez vanjskih zahtjeva); preload za brži prvi prikaz -->
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Oznaka da JS radi: animacije „reveal” se uključuju samo tada -->
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Strukturirani podaci: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "@id": "https://pokupimo.com/#business",
+    "name": "Pokupi",
+    "alternateName": "Pokupimo",
+    "url": "https://pokupimo.com/",
+    "image": "https://pokupimo.com/assets/og.png",
+    "description": "Kombi prijevoz u Zagrebu: preuzimanje i dostava stvari kupljenih na Njuškalu, Marketplaceu i u IKEA-i, prijevoz namještaja i male selidbe.",
+    "telephone": "+385958655213",
+    "priceRange": "45 € – 60 €/h",
+    "currenciesAccepted": "EUR",
+    "address": { "@type": "PostalAddress", "addressLocality": "Zagreb", "addressCountry": "HR" },
+    "areaServed": [
+      { "@type": "City", "name": "Zagreb" },
+      { "@type": "City", "name": "Velika Gorica" },
+      { "@type": "City", "name": "Samobor" },
+      { "@type": "City", "name": "Zaprešić" },
+      { "@type": "City", "name": "Sesvete" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": ["https://www.tiktok.com/@pokupimo", "https://www.instagram.com/pokupimo"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Usluge kombi prijevoza",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Dostava 1–3 komada", "price": "45", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Dostava s unosom (2 osobe)", "price": "70", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Mala selidba (kombi + 2 osobe), cijena po satu", "price": "60", "priceCurrency": "EUR" }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#kalkulator">Preskoči na kalkulator cijene</a>
+
+  <!-- ===== SVG sprite: ikone koje se koriste preko <use> ===== -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 2.5h3l1.5 4.4-2 1.6a12.5 12.5 0 0 0 6.4 6.4l1.6-2 4.4 1.5v3a2.6 2.6 0 0 1-2.9 2.6A18.4 18.4 0 0 1 4 5.4a2.6 2.6 0 0 1 2.6-2.9Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.6a9.3 9.3 0 0 0-8 14l-1.3 4.7 4.9-1.3A9.3 9.3 0 1 0 12 2.6Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8.6 7.8c.3-.6.5-.6.9-.6h.6c.2 0 .5.1.7.6l.8 1.9c.1.3 0 .6-.1.8l-.6.8c-.2.2-.2.4 0 .7a7 7 0 0 0 3.300 2.900c.3.2.6.1.8-.1l.8-1c.2-.3.5-.3.8-.2l1.800.9c.3.1.5.3.5.5 0 .7-.3 1.500-.9 1.900-.7.5-1.700.7-2.800.4a10.300 10.300 0 0 1-6.300-5.200c-.8-1.500-.9-3-.3-4.300Z" fill="currentColor"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.500" y="5" width="17" height="15.500" rx="3" fill="none" stroke="currentColor" stroke-width="2.200"/><path d="M3.500 10h17M8 2.800v4M16 2.800v4" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"/><path d="m8.500 15 2.300 2.200 4.700-4.700" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6.500 6.500 6.500-6.500 6.500" fill="none" stroke="currentColor" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.500 12.500 5 5 10-11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.200a3.600 3.600 0 1 1-3.600-3.600M14 3c.300 2.800 2 4.600 4.800 4.900" fill="none" stroke="currentColor" stroke-width="2.400" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="2.200"/><circle cx="12" cy="12" r="3.800" fill="none" stroke="currentColor" stroke-width="2.200"/><circle cx="17" cy="7" r="1.300" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- ===== Zaglavlje + ruta: kombi vozi preko „stanica” dok se skrola ===== -->
+  <header class="site-header">
+    <div class="header-row">
+      <a class="logo" href="#pocetak" aria-label="Pokupi – početna">
+        <span class="logo-mark" aria-hidden="true"></span>Pokupi
+      </a>
+      <a class="btn btn-small btn-orange header-call" data-tel data-track="call" href="tel:+385958655213">
+        <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+        <span data-cfg="contact.phoneDisplay">095 865 5213</span>
+      </a>
+    </div>
+    <nav class="route" aria-label="Sekcije stranice">
+      <div class="route-road" aria-hidden="true"></div>
+      <div class="route-van" aria-hidden="true" data-van></div>
+      <ul class="route-stations">
+        <li><a class="station" href="#pocetak"><span class="station-label">Start</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#kalkulator"><span class="station-label">Cijena</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#usluge"><span class="station-label">Usluge</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#zasto"><span class="station-label">Zašto mi</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#kako"><span class="station-label">Kako ide</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#kombi"><span class="station-label">Kombi</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#zone"><span class="station-label">Zone</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#pitanja"><span class="station-label">Pitanja</span><span class="station-dot" aria-hidden="true"></span></a></li>
+        <li><a class="station" href="#rezervacija"><span class="station-label">Rezervacija</span><span class="station-dot" aria-hidden="true"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== 1. HERO ===== -->
+    <section class="hero" id="pocetak" data-station>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>
+            <span class="eyebrow">Kombi prijevoz Zagreb · prijevoz namještaja</span>
+            Ti kupiš. <span class="hl">Mi pokupimo.</span>
+          </h1>
+          <p class="hero-sub">Kupio si nešto na <strong>Njuškalu</strong>, <strong>Marketplaceu</strong> ili u <strong>IKEA-i</strong>? Mi to pokupimo i donesemo. Dostava po Zagrebu od <strong><span data-cfg="services.dostava.base">45</span> €</strong> — cijenu znaš odmah.</p>
+          <div class="hero-cta">
+            <a class="btn btn-orange btn-big" href="#kalkulator">Izračunaj cijenu <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost btn-big" href="#rezervacija">Rezerviraj termin</a>
+          </div>
+          <ul class="hero-points">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cijena odmah</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Video provjera robe</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Plaćanje pri dostavi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Scena: cesta, stvari koje čekaju i kombi koji se dovozi -->
+      <div class="hero-scene" aria-hidden="true">
+        <div class="hero-items">
+          <!-- kutije + fotelja + lampa (cartoon) -->
+          <svg viewBox="0 0 230 120" width="230" height="120">
+            <g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M150 28h10l10 26h-30z" fill="#FFD23F"/><path d="M155 54v62M143 116h24" fill="none" stroke="#C9D2E8"/>
+              <path d="M22 72c0-12 8-20 20-20h34c12 0 20 8 20 20v8H22z" fill="#FF7A1A"/>
+              <rect x="10" y="74" width="98" height="30" rx="10" fill="#FF9A4D"/>
+              <path d="M24 104v12M94 104v12" fill="none"/>
+              <rect x="176" y="72" width="46" height="44" rx="4" fill="#E9B97A"/><path d="M176 86h46M199 72v14" fill="none"/>
+              <rect x="184" y="40" width="32" height="32" rx="4" fill="#F4D3A1"/><path d="M184 51h32" fill="none"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-van">
+          <!-- Ilustracija kombija. Ostala mjesta na stranici (ruta, „Hoće li stati?”,
+               potvrda rezervacije) dobivaju kopiju ovog SVG-a preko JS-a ([data-van]). -->
+          <svg id="van-art" class="van" viewBox="0 0 320 170" role="img" aria-label="Pokupi kombi">
+            <ellipse cx="160" cy="156" rx="140" ry="7" fill="#000" opacity=".18"/>
+            <g class="van-body">
+              <path d="M14 128V48c0-8 6-14 14-14h166c5 0 9 2 12 6l32 34 50 9c9 2 16 9 16 18v27z" fill="#fff" stroke="#0A1838" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M16.500 98h286c1 2 1.500 4 1.500 6v12H16.500z" fill="#FF7A1A"/>
+              <path d="M14 128V48c0-8 6-14 14-14h166c5 0 9 2 12 6l32 34 50 9c9 2 16 9 16 18v27z" fill="none" stroke="#0A1838" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M178 46h17l28 30h-45z" fill="#BFE3FF" stroke="#0A1838" stroke-width="4" stroke-linejoin="round"/>
+              <circle cx="197" cy="66" r="7" fill="#FFC9A3" stroke="#0A1838" stroke-width="3"/>
+              <path d="M168 40v86M96 40v56" stroke="#0A1838" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+              <rect x="180" y="86" width="14" height="5" rx="2.500" fill="#0A1838"/>
+              <rect x="287" y="89" width="14" height="9" rx="4" fill="#FFD23F" stroke="#0A1838" stroke-width="3"/>
+              <rect x="10" y="84" width="7" height="14" rx="3" fill="#E5383B" stroke="#0A1838" stroke-width="2"/>
+              <rect x="232" y="68" width="8" height="12" rx="3" fill="#0A1838"/>
+              <rect x="294" y="119" width="18" height="11" rx="4" fill="#8A94AE" stroke="#0A1838" stroke-width="3"/>
+              <text x="30" y="82" font-family="'Bricolage Grotesque', system-ui, sans-serif" font-weight="800" font-size="32" fill="#0A1838" letter-spacing="-1">Pokupi</text>
+            </g>
+            <g class="wheel"><circle cx="72" cy="132" r="23" fill="#0A1838"/><circle cx="72" cy="132" r="10" fill="#fff"/><path d="M72 114v36M54 132h36" stroke="#0A1838" stroke-width="4"/><circle cx="72" cy="132" r="3.500" fill="#FF7A1A"/></g>
+            <g class="wheel"><circle cx="246" cy="132" r="23" fill="#0A1838"/><circle cx="246" cy="132" r="10" fill="#fff"/><path d="M246 114v36M228 132h36" stroke="#0A1838" stroke-width="4"/><circle cx="246" cy="132" r="3.500" fill="#FF7A1A"/></g>
+          </svg>
+        </div>
+        <div class="hero-road"></div>
+      </div>
+    </section>
+
+    <!-- ===== 2. KALKULATOR CIJENE ===== -->
+    <section class="section section-calc" id="kalkulator" data-station>
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 1 · Cijena odmah</p>
+          <h2>Koliko košta kombi prijevoz u Zagrebu?</h2>
+          <p class="lead">Odaberi uslugu i zonu — cijena se računa uživo. Bez čekanja ponude.</p>
+        </header>
+
+        <form class="calc reveal" id="calc" novalidate>
+          <div class="calc-controls">
+            <fieldset class="field-group">
+              <legend><span class="step-no">1</span> Što trebaš?</legend>
+              <div class="choice-grid choice-services">
+                <label class="choice">
+                  <input type="radio" name="service" value="dostava" checked>
+                  <span class="choice-body">
+                    <span class="choice-title">Dostava 1–3 komada</span>
+                    <span class="choice-note">Vozač pomaže pri utovaru</span>
+                    <span class="choice-price"><span data-cfg="services.dostava.base">45</span> €</span>
+                  </span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="service" value="unos">
+                  <span class="choice-body">
+                    <span class="choice-title">Dostava s unosom</span>
+                    <span class="choice-note">2 osobe nose do stana</span>
+                    <span class="choice-price"><span data-cfg="services.unos.base">70</span> €</span>
+                  </span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="service" value="selidba">
+                  <span class="choice-body">
+                    <span class="choice-title">Mala selidba</span>
+                    <span class="choice-note">Kombi + 2 osobe</span>
+                    <span class="choice-price"><span data-cfg="services.selidba.hourly">60</span> €/h</span>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field-group">
+              <legend><span class="step-no">2</span> Kamo vozimo?</legend>
+              <div class="choice-grid choice-zones">
+                <label class="choice">
+                  <input type="radio" name="zone" value="z1" checked>
+                  <span class="choice-body">
+                    <span class="choice-title">Zagreb</span>
+                    <span class="choice-note">Zona 1</span>
+                    <span class="choice-price">bez doplate</span>
+                  </span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="zone" value="z2">
+                  <span class="choice-body">
+                    <span class="choice-title">Okolica</span>
+                    <span class="choice-note">V. Gorica, Samobor, Zaprešić, Sesvete</span>
+                    <span class="choice-price">+<span data-cfg="zones.z2.surcharge">15</span> €</span>
+                  </span>
+                </label>
+                <label class="choice">
+                  <input type="radio" name="zone" value="z3">
+                  <span class="choice-body">
+                    <span class="choice-title">Dalje</span>
+                    <span class="choice-note">Izvan Zagreba i okolice</span>
+                    <span class="choice-price">po ponudi</span>
+                  </span>
+                </label>
+              </div>
+              <div class="field calc-destination" id="calc-destination-wrap" hidden>
+                <label for="calc-destination">Odredište (mjesto ili adresa)</label>
+                <input type="text" id="calc-destination" name="destination" autocomplete="off" maxlength="200" placeholder="npr. Karlovac">
+                <p class="hint"><span data-cfg="zones.z3.perKm">1</span> €/km za cijelu rutu uključujući povratak, minimalno <span data-cfg="zones.z3.min">60</span> €.</p>
+              </div>
+            </fieldset>
+
+            <div class="field-group steppers">
+              <div class="stepper-field">
+                <label for="calc-floors"><span class="step-no">3</span> Katovi bez lifta</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-step="-1" data-for="calc-floors" aria-label="Smanji broj katova"><svg class="icon" aria-hidden="true"><use href="#i-minus"/></svg></button>
+                  <input type="number" id="calc-floors" name="floors" value="0" min="0" max="20" inputmode="numeric" aria-describedby="calc-floors-hint">
+                  <button type="button" class="stepper-btn" data-step="1" data-for="calc-floors" aria-label="Povećaj broj katova"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                </div>
+                <p class="hint" id="calc-floors-hint">Ukupno na preuzimanju i dostavi.</p>
+              </div>
+              <div class="stepper-field" id="calc-hours-wrap" hidden>
+                <label for="calc-hours"><span class="step-no">4</span> Koliko sati?</label>
+                <div class="stepper">
+                  <button type="button" class="stepper-btn" data-step="-1" data-for="calc-hours" aria-label="Smanji broj sati"><svg class="icon" aria-hidden="true"><use href="#i-minus"/></svg></button>
+                  <input type="number" id="calc-hours" name="hours" value="2" min="2" max="10" inputmode="numeric" aria-describedby="calc-hours-hint">
+                  <button type="button" class="stepper-btn" data-step="1" data-for="calc-hours" aria-label="Povećaj broj sati"><svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                </div>
+                <p class="hint" id="calc-hours-hint">Minimalno <span data-cfg="services.selidba.minHours">2</span> sata.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rezultat: „karta” s cijenom -->
+          <aside class="ticket" aria-label="Procjena cijene">
+            <p class="ticket-label">Tvoja cijena</p>
+            <p class="ticket-price" aria-hidden="true">
+              <span class="ticket-amount" id="calc-amount">45</span><span class="ticket-cur" id="calc-cur">€</span>
+            </p>
+            <p class="ticket-quote" id="calc-quote" hidden>Cijena po ponudi – javit ćemo se</p>
+            <ul class="ticket-lines" id="calc-lines"></ul>
+            <p class="sr-only" id="calc-live" aria-live="polite"></p>
+            <a class="btn btn-orange btn-big ticket-cta" id="calc-cta" href="#rezervacija">Rezerviraj za 45 €</a>
+            <p class="ticket-pay">Plaćanje pri dostavi. Bez online plaćanja.</p>
+          </aside>
+        </form>
+        <p class="fineprint">Konačna cijena potvrđuje se telefonom. Cestarine i dulje čekanje naplaćuju se dodatno.</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. USLUGE ===== -->
+    <section class="section section-services" id="usluge" data-station>
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 2 · Usluge</p>
+          <h2>Dostava s Njuškala, prijevoz namještaja i male selidbe</h2>
+          <p class="lead">Tri usluge, tri jasne cijene. Odaberi što ti treba.</p>
+        </header>
+        <div class="cards-3">
+          <article class="card service-card reveal">
+            <svg class="service-art" viewBox="0 0 96 96" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="14" y="40" width="44" height="42" rx="5" fill="#F4D3A1"/><path d="M14 54h44M36 40v14" fill="none"/><rect x="48" y="18" width="34" height="34" rx="5" fill="#FF7A1A"/><path d="M48 30h34" fill="none"/><rect x="62" y="58" width="22" height="24" rx="4" fill="#BFE3FF"/></g></svg>
+            <h3>Dostava 1–3 komada</h3>
+            <p class="price-tag"><span data-cfg="services.dostava.base">45</span> €</p>
+            <ul class="ticks">
+              <li>Podizanje i dostava</li>
+              <li>Vozač pomaže pri utovaru i istovaru</li>
+              <li>Do 1 sat</li>
+            </ul>
+            <button type="button" class="btn btn-navy" data-pick-service="dostava">Odaberi dostavu</button>
+          </article>
+          <article class="card service-card featured reveal">
+            <p class="badge">Najtraženije</p>
+            <svg class="service-art" viewBox="0 0 96 96" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M10 84h20V66h20V48h20V30h18" fill="none"/><circle cx="30" cy="30" r="8" fill="#FFC9A3"/><path d="M30 38v18M30 44l14-4" fill="none"/><rect x="42" y="26" width="18" height="16" rx="3" fill="#FF7A1A"/></g></svg>
+            <h3>Dostava s unosom <span class="soft">(2 osobe)</span></h3>
+            <p class="price-tag"><span data-cfg="services.unos.base">70</span> €</p>
+            <ul class="ticks">
+              <li>Mi nosimo — ti samo otvoriš vrata</li>
+              <li>Uključen <span data-cfg="services.unos.includedFloors">1</span> kat bez lifta</li>
+              <li>Svaki dodatni kat +<span data-cfg="floorSurcharge">10</span> €</li>
+            </ul>
+            <button type="button" class="btn btn-orange" data-pick-service="unos">Odaberi unos</button>
+          </article>
+          <article class="card service-card reveal">
+            <svg class="service-art" viewBox="0 0 96 96" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 46 48 16l36 30" fill="none"/><rect x="20" y="44" width="56" height="38" rx="4" fill="#fff"/><rect x="28" y="56" width="18" height="16" rx="3" fill="#F4D3A1"/><rect x="50" y="52" width="18" height="30" rx="3" fill="#FF7A1A"/></g></svg>
+            <h3>Mala selidba <span class="soft">(kombi + 2 osobe)</span></h3>
+            <p class="price-tag"><span data-cfg="services.selidba.hourly">60</span> €<small>/h</small></p>
+            <ul class="ticks">
+              <li>Kombi i dvije osobe</li>
+              <li>Minimalno <span data-cfg="services.selidba.minHours">2</span> sata</li>
+              <li>Za garsonijere, sobe i urede</li>
+            </ul>
+            <button type="button" class="btn btn-navy" data-pick-service="selidba">Odaberi selidbu</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. ZAŠTO POKUPI ===== -->
+    <section class="section section-why" id="zasto" data-station>
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 3 · Zašto Pokupi</p>
+          <h2>Zašto Pokupi?</h2>
+        </header>
+        <div class="cards-3">
+          <article class="why reveal">
+            <svg class="why-icon" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M8 30 30 8h22a4 4 0 0 1 4 4v22L34 56a4 4 0 0 1-6 0L8 36a4 4 0 0 1 0-6Z" fill="#FF7A1A"/><circle cx="44" cy="20" r="4" fill="#fff"/><path d="M24 34l8 8M30 28l8 8" fill="none"/></g></svg>
+            <h3>Cijena odmah</h3>
+            <p>Bez čekanja ponude. Kalkulator ti u nekoliko sekundi kaže koliko košta — i to je cijena koju potvrdimo telefonom.</p>
+          </article>
+          <article class="why reveal">
+            <svg class="why-icon" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="18" width="36" height="30" rx="6" fill="#BFE3FF"/><path d="M42 28l14-8v26l-14-8z" fill="#FF7A1A"/><path d="m19 27 10 6-10 6z" fill="#0A1838"/></g></svg>
+            <h3>Video provjera pri preuzimanju</h3>
+            <p>Kod preuzimanja s oglasa predmet snimimo sa svih strana i pošaljemo ti na WhatsApp prije utovara. Ti odlučuješ ide li u kombi.</p>
+          </article>
+          <article class="why reveal">
+            <svg class="why-icon" viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M8 14a6 6 0 0 1 6-6h36a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H30L18 56V44h-4a6 6 0 0 1-6-6z" fill="#FFD23F"/><path d="M32 16v10l7 5" fill="none"/></g></svg>
+            <h3>Javljamo kad krećemo</h3>
+            <p>Termin dobiješ u prozoru od 2 sata, a prije dolaska stiže poruka: „Stižemo za 20 minuta.” Nema cjelodnevnog čekanja.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. KAKO FUNKCIONIRA ===== -->
+    <section class="section section-how" id="kako" data-station>
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 4 · Kako funkcionira</p>
+          <h2>Tri koraka do dostave</h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Odaberi uslugu i termin</h3>
+            <p>Izračunaj cijenu, odaberi dan i prozor od 2 sata. Traje minutu.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Potvrdimo pozivom</h3>
+            <p>Nazovemo te, prođemo detalje i potvrdimo konačnu cijenu.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Pokupimo i donesemo</h3>
+            <p>Preuzmemo, pošaljemo video provjeru i dovezemo na adresu. Platiš pri dostavi.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== 6. HOĆE LI STATI? ===== -->
+    <section class="section section-fit" id="kombi" data-station>
+      <div class="wrap fit-grid">
+        <div class="fit-copy reveal">
+          <p class="kicker">Stanica 5 · Naš kombi</p>
+          <h2>Hoće li stati?</h2>
+          <p class="lead">Vozimo <strong data-cfg="vehicle.name">Citroën Jumpy 2008 L2 (duga verzija)</strong>. Evo što tipično stane:</p>
+          <ul class="fit-items">
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 30c0-7 5-12 12-12h16c7 0 12 5 12 12v6H12z" fill="#FF7A1A"/><rect x="5" y="32" width="54" height="16" rx="7" fill="#FF9A4D"/><path d="M12 48v6M52 48v6" fill="none"/></g></svg><span>Trosjed</span></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="12" y="6" width="40" height="52" rx="6" fill="#fff"/><path d="M12 20h40" fill="none"/><circle cx="32" cy="38" r="11" fill="#BFE3FF"/><circle cx="22" cy="13" r="1.500" fill="#0A1838"/></g></svg><span>Perilica rublja</span></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="12" y="6" width="40" height="48" rx="4" fill="#E9B97A"/><path d="M32 6v48M26 28v6M38 28v6M16 54v5M48 54v5" fill="none"/></g></svg><span>Ormar u dijelovima</span></li>
+            <li><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#0A1838" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><rect x="6" y="30" width="28" height="26" rx="3" fill="#F4D3A1"/><path d="M6 39h28M20 30v9" fill="none"/><rect x="34" y="36" width="24" height="20" rx="3" fill="#E9B97A"/><rect x="20" y="8" width="26" height="22" rx="3" fill="#F4D3A1"/><path d="M20 16h26" fill="none"/></g></svg><span>Kutije za garsonijeru</span></li>
+          </ul>
+
+          <!-- PLACEHOLDER: dimenzije teretnog prostora.
+               Skriveno dok su vrijednosti u js/config.js → vehicle.cargo jednake null.
+               Kad ih upišeš, blok se automatski prikaže. -->
+          <dl class="cargo-dims" id="cargo-dims" hidden>
+            <div><dt>Duljina</dt><dd><span data-cargo="length"></span> m</dd></div>
+            <div><dt>Širina</dt><dd><span data-cargo="width"></span> m</dd></div>
+            <div><dt>Visina</dt><dd><span data-cargo="height"></span> m</dd></div>
+            <div><dt>Volumen</dt><dd><span data-cargo="volume"></span> m³</dd></div>
+          </dl>
+
+          <p class="fit-note">
+            <strong>Niste sigurni? Pošaljite mjere ili sliku na WhatsApp.</strong>
+            <a class="btn btn-whatsapp" data-wa data-track="whatsapp" href="https://wa.me/385958655213" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Pošalji na WhatsApp
+            </a>
+          </p>
+        </div>
+        <div class="fit-art reveal" aria-hidden="true">
+          <div class="fit-van" data-van></div>
+          <div class="fit-road"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. ZONE DOSTAVE ===== -->
+    <section class="section section-zones" id="zone" data-station>
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 6 · Zone dostave</p>
+          <h2>Gdje vozimo: Zagreb i okolica</h2>
+          <p class="lead">Klikni zonu i odmah vidi cijenu u kalkulatoru.</p>
+        </header>
+        <div class="zones-grid">
+          <div class="zone-map reveal">
+            <svg viewBox="0 0 600 420" role="img" aria-labelledby="map-title map-desc">
+              <title id="map-title">Karta zona dostave</title>
+              <desc id="map-desc">Zona 1 je grad Zagreb. Zona 2 obuhvaća Veliku Goricu, Samobor, Zaprešić i Sesvete. Izvan toga cijena je po ponudi.</desc>
+              <rect x="6" y="6" width="588" height="408" rx="28" fill="#FFF1E0" stroke="#0A1838" stroke-width="3" stroke-dasharray="3 10" stroke-linecap="round"/>
+              <text x="30" y="44" class="map-z3">ZONA 3 · po ponudi</text>
+              <g class="map-zone" data-zone="z2">
+                <path d="M300 60c120-6 236 44 246 138 9 92-98 160-232 164-140 4-262-50-264-150C48 118 170 66 300 60Z" fill="#FFD9B8" stroke="#0A1838" stroke-width="4"/>
+              </g>
+              <path d="M40 300c70-34 120 6 190-22s110-66 180-58 110 44 160 30" fill="none" stroke="#7CC4F5" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+              <g class="map-zone" data-zone="z1">
+                <path d="M304 132c62-4 124 18 128 70 4 50-56 84-124 86-74 2-136-26-138-78-2-48 64-74 134-78Z" fill="#0F2350" stroke="#0A1838" stroke-width="4"/>
+                <text x="302" y="206" text-anchor="middle" class="map-city">ZAGREB</text>
+                <text x="302" y="232" text-anchor="middle" class="map-sub">Zona 1</text>
+              </g>
+              <g class="map-pin"><circle cx="136" cy="128" r="9"/><text x="136" y="108" text-anchor="middle">Zaprešić</text></g>
+              <g class="map-pin"><circle cx="104" cy="232" r="9"/><text x="112" y="262" text-anchor="middle">Samobor</text></g>
+              <g class="map-pin"><circle cx="470" cy="152" r="9"/><text x="462" y="132" text-anchor="middle">Sesvete</text></g>
+              <g class="map-pin"><circle cx="372" cy="322" r="9"/><text x="372" y="350" text-anchor="middle">Velika Gorica</text></g>
+            </svg>
+          </div>
+          <div class="zone-list">
+            <button type="button" class="zone-card reveal" data-pick-zone="z1">
+              <span class="zone-badge z1">Zona 1</span>
+              <span class="zone-name">Zagreb</span>
+              <span class="zone-price">Osnovna cijena · od <span data-cfg="services.dostava.base">45</span> €</span>
+            </button>
+            <button type="button" class="zone-card reveal" data-pick-zone="z2">
+              <span class="zone-badge z2">Zona 2</span>
+              <span class="zone-name">Velika Gorica, Samobor, Zaprešić, Sesvete</span>
+              <span class="zone-price">+<span data-cfg="zones.z2.surcharge">15</span> € na cijenu usluge</span>
+            </button>
+            <button type="button" class="zone-card reveal" data-pick-zone="z3">
+              <span class="zone-badge z3">Dalje</span>
+              <span class="zone-name">Ostatak Hrvatske</span>
+              <span class="zone-price"><span data-cfg="zones.z3.perKm">1</span> €/km cijele rute s povratkom · min. <span data-cfg="zones.z3.min">60</span> €</span>
+            </button>
+          </div>
+        </div>
+        <ul class="tags reveal" aria-label="Kvartovi u kojima vozimo">
+          <li>Trešnjevka</li><li>Maksimir</li><li>Dubrava</li><li>Novi Zagreb</li><li>Črnomerec</li><li>Jarun</li>
+          <li>Špansko</li><li>Trnje</li><li>Donji grad</li><li>Gornji grad</li><li>Peščenica</li><li>Vrapče</li>
+          <li>Stenjevec</li><li>Malešnica</li><li>Prečko</li><li>Borongaj</li><li>Sloboština</li><li>Dugave</li>
+          <li>Travno</li><li>Siget</li><li>Remetinec</li><li>Podsused</li><li>Gajnice</li><li>Medveščak</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 8. FAQ ===== -->
+    <section class="section section-faq" id="pitanja" data-station>
+      <div class="wrap wrap-narrow">
+        <header class="section-head reveal">
+          <p class="kicker">Stanica 7 · Česta pitanja</p>
+          <h2>Česta pitanja</h2>
+        </header>
+        <div class="faq reveal">
+          <details name="faq">
+            <summary>Koliko košta prijevoz namještaja u Zagrebu?</summary>
+            <p>Dostava 1–3 komada po Zagrebu košta <span data-cfg="services.dostava.base">45</span> €, dostava s unosom (2 osobe) <span data-cfg="services.unos.base">70</span> €, a mala selidba <span data-cfg="services.selidba.hourly">60</span> €/h (minimalno <span data-cfg="services.selidba.minHours">2</span> sata). Točan iznos za svoju vožnju dobiješ odmah u <a href="#kalkulator">kalkulatoru</a>.</p>
+          </details>
+          <details name="faq">
+            <summary>Kako se plaća?</summary>
+            <p>Plaćaš pri dostavi, kad stvari stignu na adresu. Online plaćanja i avansa nema.</p>
+          </details>
+          <details name="faq">
+            <summary>Što je video provjera?</summary>
+            <p>Kad preuzimamo predmet s oglasa (Njuškalo, Marketplace…), snimimo ga sa svih strana i pošaljemo ti video na WhatsApp prije utovara. Ako nije onakav kakav je opisan, odlučuješ prije nego što krene na put.</p>
+          </details>
+          <details name="faq">
+            <summary>Nosite li stvari do stana?</summary>
+            <p>Da — odaberi „Dostava s unosom”. Dolaze dvije osobe i uključen je <span data-cfg="services.unos.includedFloors">1</span> kat bez lifta; svaki dodatni kat je +<span data-cfg="floorSurcharge">10</span> €. Kod obične dostave vozač pomaže pri utovaru i istovaru.</p>
+          </details>
+          <details name="faq">
+            <summary>Što ako nisam siguran hoće li stati u kombi?</summary>
+            <p>Pošalji mjere ili sliku na WhatsApp i javimo ti. Vozimo Citroën Jumpy L2 (dugu verziju) u koji tipično stanu trosjed, perilica, ormar u dijelovima ili kutije za garsonijeru.</p>
+          </details>
+          <details name="faq">
+            <summary>Vozite li izvan Zagreba?</summary>
+            <p>Da. Za Veliku Goricu, Samobor, Zaprešić i Sesvete doplata je <span data-cfg="zones.z2.surcharge">15</span> €. Za dalje relacije cijena je <span data-cfg="zones.z3.perKm">1</span> €/km za cijelu rutu uključujući povratak, minimalno <span data-cfg="zones.z3.min">60</span> € — pošalji upit i javimo se s ponudom.</p>
+          </details>
+          <details name="faq">
+            <summary>Kada točno dolazite?</summary>
+            <p>Biraš prozor od 2 sata (npr. 10–12). Prije dolaska šaljemo poruku „stižemo za 20 minuta”, tako da ne moraš čekati cijeli dan.</p>
+          </details>
+          <details name="faq">
+            <summary>Ima li dodatnih troškova?</summary>
+            <p>Cijena iz kalkulatora uključuje uslugu, zonu i katove. Dodatno se naplaćuju samo cestarine i dulje čekanje. Konačnu cijenu potvrdimo telefonom prije vožnje.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. REZERVACIJA ===== -->
+    <section class="section section-booking" id="rezervacija" data-station>
+      <div class="wrap wrap-narrow">
+        <header class="section-head reveal">
+          <p class="kicker">Zadnja stanica · Rezervacija</p>
+          <h2>Rezerviraj termin</h2>
+          <p class="lead">Ispuni podatke — zovemo te da potvrdimo. Plaćanje pri dostavi.</p>
+        </header>
+
+        <!-- Forma se šalje preko fetch-a (js/booking.js), bez reloada stranice -->
+        <form class="booking" id="booking" novalidate>
+          <div class="form-error" id="booking-error" role="alert" hidden></div>
+
+          <fieldset class="form-block">
+            <legend>Usluga</legend>
+            <div class="field">
+              <label for="b-service">Usluga <span class="req" aria-hidden="true">*</span></label>
+              <select id="b-service" name="service" required>
+                <option value="dostava">Dostava 1–3 komada</option>
+                <option value="unos">Dostava s unosom (2 osobe)</option>
+                <option value="selidba">Mala selidba (kombi + 2 osobe)</option>
+              </select>
+            </div>
+            <div class="summary" id="booking-summary" aria-live="polite">
+              <div>
+                <p class="summary-label">Procjena iz kalkulatora</p>
+                <p class="summary-detail" id="summary-detail"></p>
+              </div>
+              <p class="summary-price" id="summary-price">45 €</p>
+              <a class="summary-edit" href="#kalkulator">Promijeni</a>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Termin</legend>
+            <div class="field">
+              <label for="b-date">Datum <span class="req" aria-hidden="true">*</span></label>
+              <input type="date" id="b-date" name="date" required>
+              <p class="error" id="b-date-error"></p>
+            </div>
+            <div class="field" role="radiogroup" aria-labelledby="b-slot-label" id="b-slot-group">
+              <p class="label" id="b-slot-label">Termin (prozor od 2 sata) <span class="req" aria-hidden="true">*</span></p>
+              <div class="slots" id="b-slots"><!-- puni se iz config.timeSlots --></div>
+              <p class="error" id="b-slot-error"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Preuzimanje</legend>
+            <div class="field">
+              <label for="b-pickup">Adresa preuzimanja <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="b-pickup" name="pickup_address" required maxlength="300" autocomplete="off" placeholder="Ulica i broj, mjesto">
+              <p class="error" id="b-pickup-error"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-pickup-floor">Kat <span class="req" aria-hidden="true">*</span></label>
+                <select id="b-pickup-floor" name="pickup_floor" required data-floor></select>
+                <p class="error" id="b-pickup-floor-error"></p>
+              </div>
+              <div class="field">
+                <label for="b-pickup-lift">Lift <span class="req" aria-hidden="true">*</span></label>
+                <select id="b-pickup-lift" name="pickup_lift" data-lift>
+                  <option value="">Odaberi…</option>
+                  <option value="da">Ima lift</option>
+                  <option value="ne">Nema lifta</option>
+                </select>
+                <p class="error" id="b-pickup-lift-error"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Dostava</legend>
+            <div class="field">
+              <label for="b-dropoff">Adresa dostave <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="b-dropoff" name="dropoff_address" required maxlength="300" autocomplete="street-address" placeholder="Ulica i broj, mjesto">
+              <p class="error" id="b-dropoff-error"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-dropoff-floor">Kat <span class="req" aria-hidden="true">*</span></label>
+                <select id="b-dropoff-floor" name="dropoff_floor" required data-floor></select>
+                <p class="error" id="b-dropoff-floor-error"></p>
+              </div>
+              <div class="field">
+                <label for="b-dropoff-lift">Lift <span class="req" aria-hidden="true">*</span></label>
+                <select id="b-dropoff-lift" name="dropoff_lift" data-lift>
+                  <option value="">Odaberi…</option>
+                  <option value="da">Ima lift</option>
+                  <option value="ne">Nema lifta</option>
+                </select>
+                <p class="error" id="b-dropoff-lift-error"></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Što vozimo?</legend>
+            <div class="field">
+              <label for="b-items">Opis predmeta <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="b-items" name="item_description" rows="3" required maxlength="1000" placeholder="npr. trosjed 220 cm i dvije kutije"></textarea>
+              <p class="error" id="b-items-error"></p>
+            </div>
+            <div class="field">
+              <label for="b-image">Slika predmeta <span class="opt">(opcionalno)</span></label>
+              <input type="file" id="b-image" name="image" accept="image/*">
+              <p class="hint">JPG, PNG ili WebP, do <span data-cfg="supabase.maxImageMB">5</span> MB.</p>
+              <p class="error" id="b-image-error"></p>
+            </div>
+            <div class="field">
+              <label for="b-listing">Link na oglas <span class="opt">(opcionalno)</span></label>
+              <input type="url" id="b-listing" name="listing_url" maxlength="500" inputmode="url" placeholder="https://www.njuskalo.hr/…">
+              <p class="error" id="b-listing-error"></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-block">
+            <legend>Tvoji podaci</legend>
+            <div class="field">
+              <label for="b-name">Ime i prezime <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="b-name" name="name" required maxlength="120" autocomplete="name">
+              <p class="error" id="b-name-error"></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="b-phone">Telefon <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="b-phone" name="phone" required maxlength="30" autocomplete="tel" inputmode="tel" placeholder="09x xxx xxxx">
+                <p class="error" id="b-phone-error"></p>
+              </div>
+              <div class="field">
+                <label for="b-email">Email <span class="opt">(opcionalno)</span></label>
+                <input type="email" id="b-email" name="email" maxlength="200" autocomplete="email">
+                <p class="error" id="b-email-error"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="b-note">Napomena <span class="opt">(opcionalno)</span></label>
+              <textarea id="b-note" name="note" rows="2" maxlength="1000" placeholder="npr. zvono na ime, uski ulaz, parking…"></textarea>
+            </div>
+            <!-- Honeypot protiv botova: ljudi ga ne vide i ne ispunjavaju -->
+            <div class="hp" aria-hidden="true">
+              <label for="b-website">Web stranica</label>
+              <input type="text" id="b-website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-orange btn-big booking-submit" id="booking-submit">Pošalji rezervaciju</button>
+          <p class="fineprint">Konačna cijena potvrđuje se telefonom. Cestarine i dulje čekanje naplaćuju se dodatno. Podatke koristimo samo za dogovor i izvršenje prijevoza.</p>
+        </form>
+
+        <!-- Potvrda nakon uspješnog slanja: kombi odlazi s ekrana -->
+        <div class="success" id="booking-success" hidden tabindex="-1">
+          <div class="success-scene" aria-hidden="true">
+            <div class="success-van" data-van></div>
+            <div class="success-road"></div>
+          </div>
+          <h3>Hvala! Zovemo vas uskoro da potvrdimo termin.</h3>
+          <p id="success-detail"></p>
+          <p>Hitno je? Nazovi <a data-tel data-track="call" href="tel:+385958655213"><span data-cfg="contact.phoneDisplay">095 865 5213</span></a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== 10. FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="logo logo-light"><span class="logo-mark" aria-hidden="true"></span>Pokupi</p>
+        <p>Kombi prijevoz u Zagrebu: dostava s Njuškala, Marketplacea i iz IKEA-e, prijevoz namještaja i male selidbe.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Kontakt</h2>
+        <ul class="footer-list">
+          <li><a data-tel data-track="call" href="tel:+385958655213"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-cfg="contact.phoneDisplay">095 865 5213</span></a></li>
+          <li><a data-wa data-track="whatsapp" href="https://wa.me/385958655213" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Radno vrijeme</h2>
+        <p data-cfg="workingHours">Svaki dan 08:00–18:00</p>
+        <p>Zagreb i okolica</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Prati nas</h2>
+        <ul class="footer-list">
+          <li><a data-social="tiktok" href="https://www.tiktok.com/@pokupimo" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a></li>
+          <li><a data-social="instagram" href="https://www.instagram.com/pokupimo" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="wrap footer-copy">© <span id="year">2026</span> Pokupi · pokupimo.com</p>
+  </footer>
+
+  <!-- ===== Sticky donja traka (samo mobitel) ===== -->
+  <nav class="mobile-bar" aria-label="Brzi kontakt">
+    <a data-tel data-track="call" href="tel:+385958655213"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Nazovi</a>
+    <a data-wa data-track="whatsapp" href="https://wa.me/385958655213" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+    <a class="primary" href="#rezervacija"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Rezerviraj</a>
+  </nav>
+
+  <!-- Traka za privolu na kolačiće – prikazuje se samo ako su GA/Ads ID-evi upisani -->
+  <div class="consent" id="consent" hidden role="dialog" aria-label="Kolačići">
+    <p>Koristimo kolačiće za analitiku kako bismo poboljšali stranicu.</p>
+    <div class="consent-actions">
+      <button type="button" class="btn btn-small btn-ghost-dark" data-consent="no">Odbij</button>
+      <button type="button" class="btn btn-small btn-orange" data-consent="yes">Prihvati</button>
+    </div>
+  </div>
+
+  <noscript><p class="noscript">Za kalkulator i online rezervaciju uključi JavaScript — ili nas nazovi na 095 865 5213.</p></noscript>
+</body>
+</html>
