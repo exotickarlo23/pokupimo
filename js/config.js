@@ -100,9 +100,12 @@ export const CONFIG = {
     maxImageMB: 5,
   },
 
-  /* ---------- ANALITIKA (placeholderi) ----------
-   * Dok ID-evi sadrže „XXXX”, skripte se ne učitavaju. */
+  /* ---------- ANALITIKA ----------
+   * Google Tag Manager je glavni: GA4 i Ads oznake postavljaju se u GTM-u.
+   * ga4Id / adsId upiši samo ako ih želiš učitati izravno, mimo GTM-a.
+   * ID koji sadrži „XXXX” se ne učitava. */
   analytics: {
+    gtmId: 'GTM-T4N48274',
     ga4Id: 'G-XXXXXXXXXX',
     adsId: 'AW-XXXXXXXXXX',
     adsLabels: {

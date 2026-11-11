@@ -31,9 +31,11 @@ Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) 
   (Iznimka: „od 45 €” u `<meta name="description">` i JSON-LD-u u `index.html` je statičan tekst.)
 - **Podaci o vozilu** (obujam, nosivost, dimenzije) → `js/config.js` → `vehicle.specs`.
 - **Podaci o obrtu u footeru, radno vrijeme, Instagram** → `js/config.js` (`company`, `workingHours`, `social`).
-- **Google Analytics / Ads** → `js/config.js` → `analytics`. Dok ID-evi sadrže `XXXX`, ništa se ne učitava.
-  Kad se upišu, pojavljuje se traka za privolu, a `gtag` se učitava tek nakon prihvaćanja.
-  Događaji: uspješna rezervacija (`generate_lead`), klik na poziv (`click_call`), klik na WhatsApp (`click_whatsapp`).
+- **Google Tag Manager / Analytics / Ads** → `js/config.js` → `analytics`. Stranica učitava GTM kontejner
+  `GTM-T4N48274` uz Google Consent Mode v2: dok posjetitelj ne klikne „Prihvati”, Googleove oznake ne spremaju
+  kolačiće. GA4 i Google Ads oznake postavljaju se u GTM-u. U `dataLayer` se šalju događaji
+  `generate_lead` (rezervacija, s `value`), `click_call` i `click_whatsapp` – koristi ih kao okidače
+  („Custom Event”) u GTM-u.
 
 ## Admin dashboard
 

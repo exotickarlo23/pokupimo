@@ -74,6 +74,8 @@
   </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) – GTM sam se učitava u js/analytics.js, uz privolu za kolačiće -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4N48274" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
   <a class="skip-link" href="#kalkulator">Preskoči na kalkulator cijene</a>
 
   <!-- ===== SVG sprite: ikone koje se koriste preko <use> ===== -->
@@ -746,9 +748,9 @@
     <a class="primary" href="#rezervacija"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Rezerviraj</a>
   </nav>
 
-  <!-- Traka za privolu na kolačiće – prikazuje se samo ako su GA/Ads ID-evi upisani -->
+  <!-- Traka za privolu na kolačiće (Google Consent Mode) – vidi js/analytics.js -->
   <div class="consent" id="consent" hidden role="dialog" aria-label="Kolačići">
-    <p>Koristimo kolačiće za analitiku kako bismo poboljšali stranicu.</p>
+    <p>Koristimo kolačiće za analitiku i mjerenje oglasa kako bismo poboljšali stranicu. Možeš ih odbiti.</p>
     <div class="consent-actions">
       <button type="button" class="btn btn-small btn-ghost-dark" data-consent="no">Odbij</button>
       <button type="button" class="btn btn-small btn-primary" data-consent="yes">Prihvati</button>
