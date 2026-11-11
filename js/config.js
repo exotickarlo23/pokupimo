@@ -101,12 +101,12 @@ export const CONFIG = {
   },
 
   /* ---------- ANALITIKA ----------
-   * Google Tag Manager je glavni: GA4 i Ads oznake postavljaju se u GTM-u.
-   * ga4Id / adsId upiši samo ako ih želiš učitati izravno, mimo GTM-a.
+   * GA4 (ga4Id) se učitava izravno, a GTM je za dodatne oznake (npr. Google Ads).
+   * VAŽNO: ne dodaj GA4 oznaku i u GTM-u – posjeti bi se brojali dvaput.
    * ID koji sadrži „XXXX” se ne učitava. */
   analytics: {
     gtmId: 'GTM-T4N48274',
-    ga4Id: 'G-XXXXXXXXXX',
+    ga4Id: 'G-YCY6JWGKEZ',
     adsId: 'AW-XXXXXXXXXX',
     adsLabels: {
       booking: 'XXXXXXXXXXXXXXXX',   // konverzija: uspješna rezervacija
