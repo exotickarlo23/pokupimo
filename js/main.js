@@ -1,5 +1,5 @@
 /**
- * Pokupi – glavni modul sučelja:
+ * Pokupimo – glavni modul sučelja:
  *  1. popunjavanje tekstova iz konfiguracije (cijene, kontakt…)
  *  2. kopije ilustracije kombija
  *  3. ruta: kombi vozi preko „stanica” dok se skrola
@@ -30,20 +30,14 @@ function fillFromConfig() {
   updateWhatsAppLinks();
   $('#year').textContent = new Date().getFullYear();
 
-  // Dimenzije teretnog prostora: prikaži samo ako su upisane u konfiguraciju
-  const cargo = CONFIG.vehicle.cargo;
-  const dims = $('#cargo-dims');
-  let any = false;
-  $$('[data-cargo]', dims).forEach((el) => {
-    const value = cargo[el.dataset.cargo];
-    if (value === null || value === undefined) {
-      el.closest('div').hidden = true;
-    } else {
-      el.textContent = String(value).replace('.', ',');
-      any = true;
-    }
-  });
-  dims.hidden = !any;
+  // Podaci o vozilu iz konfiguracije
+  $('#vehicle-specs').replaceChildren(...CONFIG.vehicle.specs.map(({ label, value }) => {
+    const row = document.createElement('div');
+    row.innerHTML = '<dt></dt><dd></dd>';
+    row.firstChild.textContent = label;
+    row.lastChild.textContent = value;
+    return row;
+  }));
 }
 
 /** WhatsApp linkovi s prepopunjenom porukom; [datum] se zamijeni odabranim datumom. */
@@ -61,10 +55,7 @@ function cloneVans() {
   $$('[data-van]').forEach((slot) => {
     const copy = art.cloneNode(true);
     copy.removeAttribute('id');
-    copy.removeAttribute('role');
-    copy.removeAttribute('aria-label');
-    copy.setAttribute('aria-hidden', 'true');
-    slot.append(copy);
+        slot.append(copy);
   });
 }
 

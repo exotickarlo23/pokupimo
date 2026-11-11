@@ -1,6 +1,6 @@
-# Pokupi – pokupimo.com
+# Pokupimo – pokupimo.com
 
-Web stranica za Pokupi, uslugu kombi prijevoza u Zagrebu („Ti kupiš. Mi pokupimo.”).
+Web stranica za Pokupimo, uslugu kombi prijevoza u Zagrebu („Ti kupiš. Mi pokupimo.”).
 
 Statična stranica **bez build koraka i bez biblioteka**: čisti HTML, CSS i ES moduli.
 Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) – korijen repozitorija je korijen stranice.
@@ -17,6 +17,7 @@ Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) 
 | `js/main.js` | Kalkulator, ruta s kombijem, animacije |
 | `js/booking.js` | Forma: validacija, upload slike, slanje u Supabase |
 | `js/analytics.js` | GA4 + Google Ads konverzije (uz privolu) |
+| `assets/img/` | Logo, kombi i fotografije (WebP) |
 | `supabase/migrations/` | SQL: tablica, RLS, Storage bucket, trigger za email |
 | `supabase/functions/pokupi-notify/` | Edge funkcija koja šalje email za novu rezervaciju |
 | `tests/pricing.test.mjs` | Test kalkulatora za sve kombinacije |
@@ -26,7 +27,8 @@ Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) 
 - **Cijene, doplate, termini, telefon, radno vrijeme, društvene mreže** → `js/config.js`.
   Kalkulator, kartice usluga, zone, FAQ i forma čitaju vrijednosti odande.
   (Iznimka: „od 45 €” u `<meta name="description">` i JSON-LD-u u `index.html` je statičan tekst.)
-- **Dimenzije teretnog prostora** → `js/config.js` → `vehicle.cargo`. Dok su `null`, ne prikazuju se.
+- **Podaci o vozilu** (obujam, nosivost, dimenzije) → `js/config.js` → `vehicle.specs`.
+- **Podaci o obrtu u footeru, radno vrijeme, Instagram** → `js/config.js` (`company`, `workingHours`, `social`).
 - **Google Analytics / Ads** → `js/config.js` → `analytics`. Dok ID-evi sadrže `XXXX`, ništa se ne učitava.
   Kad se upišu, pojavljuje se traka za privolu, a `gtag` se učitava tek nakon prihvaćanja.
   Događaji: uspješna rezervacija (`generate_lead`), klik na poziv (`click_call`), klik na WhatsApp (`click_whatsapp`).
@@ -43,19 +45,21 @@ npm test
 
 ## Supabase
 
-1. Pokreni `supabase/migrations/001_pokupi_bookings.sql` (tablica `pokupi_bookings`, RLS, bucket `pokupi-uploads`).
-2. U `js/config.js` upiši `supabase.url` i `supabase.key` (publishable/anon ključ – javan je po dizajnu).
+Stranica koristi Supabase projekt **slavimo-hr** (`js/config.js` → `supabase`). Tablica `pokupi_bookings`,
+bucket `pokupi-uploads`, trigger i funkcija `pokupi-notify` već su postavljeni; SQL je u `supabase/migrations/`
+radi ponovljivosti.
 
 Sigurnost: javni korisnik ima **samo INSERT** (i to samo na stupce iz forme). Nema politika za čitanje,
-izmjenu ni brisanje. Bucket je privatan; `image_url` je putanja do objekta vidljiva samo iz Supabase sučelja
-ili preko potpisanog linka u emailu.
+izmjenu ni brisanje. Bucket je privatan i prima samo slike do 5 MB; `image_url` je putanja do objekta
+vidljiva iz Supabase sučelja ili preko potpisanog linka u emailu.
 
 ### Email notifikacija
 
-1. Pokreni `supabase/migrations/002_pokupi_email_notification.sql` (trigger → Edge funkcija preko `pg_net`).
-2. Deployaj funkciju `pokupi-notify` (bez JWT provjere – funkcija sama provjerava tajno zaglavlje).
-3. Postavi tajne funkcije: `POKUPI_WEBHOOK_SECRET`, `RESEND_API_KEY`, `POKUPI_NOTIFY_EMAIL`
-   (opcionalno `POKUPI_NOTIFY_FROM`).
-4. U Vault dodaj `pokupi_notify_url` (URL funkcije) i `pokupi_notify_secret` (isti niz kao `POKUPI_WEBHOOK_SECRET`).
+Trigger nakon svakog INSERT-a zove Edge funkciju `pokupi-notify` (preko `pg_net`), koja šalje email preko
+[Resenda](https://resend.com). Da bi emailovi krenuli, u Supabase → Edge Functions → Secrets treba dodati:
 
-Ako email ne uspije, rezervacija se svejedno sprema u tablicu.
+- `RESEND_API_KEY` – API ključ s resend.com
+- `POKUPI_NOTIFY_EMAIL` – adresa na koju stižu obavijesti
+- `POKUPI_NOTIFY_FROM` – opcionalno, pošiljatelj s vlastite domene
+
+Dok tajne nisu postavljene, rezervacije se normalno spremaju u tablicu, samo email ne stiže.

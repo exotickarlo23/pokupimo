@@ -1,5 +1,5 @@
 -- =====================================================================
--- Pokupi – rezervacije
+-- Pokupimo – rezervacije
 -- Tablica pokupi_bookings + Storage bucket pokupi-uploads + RLS.
 -- Javni (anon) korisnik smije SAMO INSERT – bez čitanja, izmjene i brisanja.
 -- =====================================================================

@@ -1,5 +1,5 @@
 /**
- * POKUPI – SREDIŠNJA KONFIGURACIJA
+ * POKUPIMO – SREDIŠNJA KONFIGURACIJA
  * ---------------------------------------------------------------
  * Sve cijene, zone, termini, kontakti i ID-evi integracija nalaze se
  * OVDJE. Promjena u ovoj datoteci automatski se odražava na kalkulator,
@@ -35,7 +35,7 @@ export const CONFIG = {
 
   /* ---------- ZONE ---------- */
   zones: {
-    z1: { name: 'Zona 1 – Zagreb', surcharge: 0 },
+    z1: { name: 'Zona 1 – Zagreb', surcharge: 0 },   // uključuje i IKEA-u
     z2: {
       name: 'Zona 2 – okolica',
       surcharge: 15,       // doplata u €
@@ -63,26 +63,38 @@ export const CONFIG = {
     whatsapp: '385958655213',     // za wa.me (bez +)
     whatsappMessage: 'Bok, trebam prijevoz za [datum]…',
   },
-  workingHours: 'Svaki dan 08:00–18:00',
+  workingHours: 'Svaki dan, i vikendom',
+  workingHoursShort: '08:00–18:00',
   social: {
-    tiktok: 'https://www.tiktok.com/@pokupimo',
     instagram: 'https://www.instagram.com/pokupimo',
   },
 
+  /* ---------- PODACI O OBRTU (footer) ---------- */
+  company: {
+    name: 'GROWZY, obrt za usluge',
+    owner: 'vl. Karlo Turić',
+    address: 'Čučerska cesta 181A, Zagreb',
+  },
+
   /* ---------- VOZILO ----------
-   * Dimenzije teretnog prostora: dok su vrijednosti null, na stranici se
-   * NE prikazuju. Upiši brojeve (npr. length: 2.86) i blok se sam pojavi. */
+   * Stavke se prikazuju u sekciji „Hoće li stati?” redom kojim su navedene. */
   vehicle: {
-    name: 'Citroën Jumpy 2008 L2 (duga verzija)',
-    cargo: { length: null, width: null, height: null, volume: null }, // m, m, m, m³
+    name: 'Citroën Jumpy L1H1 (kraća verzija)',
+    specs: [
+      { label: 'Teretni prostor', value: 'oko 5 m³' },
+      { label: 'Nosivost', value: 'oko 1137 kg' },
+      { label: 'Duljina vozila', value: '4,81 m' },
+      { label: 'Širina vozila', value: '1,90 m' },
+      { label: 'Visina vozila', value: '1,88 m' },
+    ],
   },
 
   /* ---------- SUPABASE ----------
    * Publishable (anon) ključ je javan po dizajnu – zaštita je RLS:
    * javni korisnik smije samo INSERT. */
   supabase: {
-    url: '',               // npr. https://xxxx.supabase.co
-    key: '',               // publishable / anon key
+    url: 'https://weyhdcyimnefzblmldxz.supabase.co',
+    key: 'sb_publishable_aBxytUU8q2CCz0sMRmGRmw_vmI8jtDO',   // publishable ključ (javan)
     table: 'pokupi_bookings',
     bucket: 'pokupi-uploads',
     maxImageMB: 5,

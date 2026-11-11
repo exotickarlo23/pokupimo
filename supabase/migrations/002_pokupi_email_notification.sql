@@ -1,10 +1,11 @@
 -- =====================================================================
--- Pokupi – email notifikacija za svaku novu rezervaciju
+-- Pokupimo – email notifikacija za svaku novu rezervaciju
 -- Trigger nakon INSERT-a poziva Edge funkciju `pokupi-notify` (pg_net),
--- a ona šalje email. URL funkcije i tajni ključ čitaju se iz Vaulta:
---   pokupi_notify_url     – https://<projekt>.supabase.co/functions/v1/pokupi-notify
---   pokupi_notify_secret  – isti niz kao tajna POKUPI_WEBHOOK_SECRET na funkciji
--- Ako tajne nisu postavljene ili poziv ne uspije, rezervacija se SVEJEDNO sprema.
+-- a ona šalje email. Šalje se samo ID rezervacije; funkcija sama učita red.
+-- URL funkcije čita se iz Vaulta:
+--   pokupi_notify_url  – https://<projekt>.supabase.co/functions/v1/pokupi-notify
+--   (select vault.create_secret('<url>', 'pokupi_notify_url');)
+-- Ako URL nije postavljen ili poziv ne uspije, rezervacija se SVEJEDNO sprema.
 -- =====================================================================
 
 create extension if not exists pg_net;
@@ -17,18 +18,16 @@ set search_path = ''
 as $$
 declare
   fn_url text;
-  fn_secret text;
 begin
   select decrypted_secret into fn_url from vault.decrypted_secrets where name = 'pokupi_notify_url';
-  select decrypted_secret into fn_secret from vault.decrypted_secrets where name = 'pokupi_notify_secret';
-  if fn_url is null or fn_secret is null then
+  if fn_url is null then
     return new;
   end if;
 
   perform net.http_post(
     url := fn_url,
-    headers := jsonb_build_object('Content-Type', 'application/json', 'x-pokupi-secret', fn_secret),
-    body := jsonb_build_object('record', to_jsonb(new))
+    headers := jsonb_build_object('Content-Type', 'application/json'),
+    body := jsonb_build_object('id', new.id)
   );
   return new;
 exception when others then
