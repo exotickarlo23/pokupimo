@@ -6,6 +6,7 @@
  *  4. pojavljivanje sekcija pri skrolu
  *  5. kalkulator cijene
  *  6. kartice usluga i zona → kalkulator
+ *  7. tekstovi i cijene izmijenjeni u admin dashboardu
  * Forma za rezervaciju je u booking.js, analitika u analytics.js.
  */
 import { CONFIG } from './config.js';
@@ -13,6 +14,8 @@ import { calcPrice } from './pricing.js';
 import { getState, setState, subscribe } from './state.js';
 import { initBooking } from './booking.js';
 import { initAnalytics, initClickTracking } from './analytics.js';
+import { collectEditable, applyText, applyConfigOverrides } from './content.js';
+import { loadSiteData } from './site-data.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -285,12 +288,33 @@ function initPickers() {
   });
 }
 
+/* ---------- 7. Tekstovi i cijene iz admin dashboarda ---------- */
+// Izvorni tekstovi se popišu jednom, prije ikakvih izmjena, da ključevi ostanu stabilni.
+const editable = new Map(collectEditable(document).map(({ key, el }) => [key, el]));
+
+function applySiteContent(overrides) {
+  applyConfigOverrides(CONFIG, overrides);
+  Object.entries(overrides).forEach(([key, value]) => {
+    const el = editable.get(key);
+    if (el) applyText(el, value);
+  });
+}
+
 /* ---------- Pokretanje ---------- */
+// 1) odmah primijeni zadnje poznate izmjene (iz predmemorije) – bez „treptanja”
+// 2) u pozadini dohvati svježe; ako se razlikuju, osvježi prikaz
+const siteData = loadSiteData((fresh) => {
+  applySiteContent(fresh);
+  fillFromConfig();
+  setState({});          // ponovno iscrtaj kalkulator i sažetak s novim cijenama
+});
+applySiteContent(siteData.content);
+
 fillFromConfig();
 cloneVans();
 initCalculator();
 initPickers();
-initBooking({ updateWhatsAppLinks });
+initBooking({ updateWhatsAppLinks, isBlocked: siteData.isBlocked });
 initRoute();
 initReveal();
 initAnalytics();

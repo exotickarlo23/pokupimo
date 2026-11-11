@@ -17,6 +17,8 @@ Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) 
 | `js/main.js` | Kalkulator, ruta s kombijem, animacije |
 | `js/booking.js` | Forma: validacija, upload slike, slanje u Supabase |
 | `js/analytics.js` | GA4 + Google Ads konverzije (uz privolu) |
+| `js/content.js`, `js/site-data.js` | Tekstovi, cijene i blokirani datumi koje administrator mijenja u dashboardu |
+| `admin/` | **Admin dashboard** (`/admin/`): pregled, rezervacije, kalendar, troškovnik, tekstovi i cijene |
 | `assets/img/` | Logo, kombi i fotografije (WebP) |
 | `supabase/migrations/` | SQL: tablica, RLS, Storage bucket, trigger za email |
 | `supabase/functions/pokupi-notify/` | Edge funkcija koja šalje email za novu rezervaciju |
@@ -32,6 +34,24 @@ Može se hostati bilo gdje (Vercel, Netlify, Cloudflare Pages, obični hosting) 
 - **Google Analytics / Ads** → `js/config.js` → `analytics`. Dok ID-evi sadrže `XXXX`, ništa se ne učitava.
   Kad se upišu, pojavljuje se traka za privolu, a `gtag` se učitava tek nakon prihvaćanja.
   Događaji: uspješna rezervacija (`generate_lead`), klik na poziv (`click_call`), klik na WhatsApp (`click_whatsapp`).
+
+## Admin dashboard
+
+Dashboard je na `/admin/` (npr. `https://pokupimo.com/admin/`). Prijava je Supabase Auth (email + lozinka).
+
+- **Pregled** – prihod, troškovi i dobit za mjesec, trend zadnjih 6 mjeseci, nadolazeće rezervacije i one koje čekaju potvrdu.
+- **Rezervacije** – popis s filtrima i pretragom; detalji, promjena statusa (novo → potvrđeno → odrađeno / otkazano),
+  naplaćeni iznos, interna bilješka, slika predmeta, ručni unos rezervacije.
+  Prihod se računa samo za status „odrađeno” (naplaćeni iznos, a ako nije upisan – procjena).
+- **Kalendar** – mjesečni prikaz; dan se može blokirati pa ga kupci ne mogu odabrati u formi.
+- **Troškovnik** – unos troškova po kategorijama, zbroj po kategoriji i razdoblju.
+- **Tekstovi i cijene** – svi tekstovi stranice i cijene iz `js/config.js`. U bazu se spremaju samo izmjene
+  (tablica `pokupi_content`); „Vrati izvorno” briše izmjenu. Popis tekstova čita se iz `index.html`,
+  pa se novi tekst na stranici automatski pojavi u dashboardu.
+
+Tko je administrator određuje tablica `pokupi_admins` (ID korisnika iz Supabase Autha); sva prava provodi RLS
+u bazi (`supabase/migrations/003_pokupi_admin_dashboard.sql`). Novi administrator: stvori korisnika u
+Supabase → Authentication, pa `insert into pokupi_admins (user_id) values ('<id korisnika>');`.
 
 ## Lokalno pokretanje
 

@@ -36,12 +36,16 @@ export function floorsText(n) {
   return `${n} katova`;
 }
 
+/** Provjera blokiranih datuma (postavlja se u initBooking iz admin podataka). */
+let isDateBlocked = () => false;
+
 /* ---------- Pravila validacije (poruke na hrvatskom) ---------- */
 const validators = {
   date(v) {
     if (!v) return 'Odaberi datum.';
     if (!/^\d{4}-\d{2}-\d{2}$/.test(v) || Number.isNaN(Date.parse(v))) return 'Datum nije ispravan.';
     if (v < todayISO()) return 'Datum ne može biti u prošlosti.';
+    if (isDateBlocked(v)) return 'Taj dan ne primamo rezervacije. Odaberi drugi datum ili nas nazovi.';
     return '';
   },
   time_slot(v) {
@@ -165,7 +169,8 @@ async function insertBooking(row) {
 }
 
 /* ---------- Inicijalizacija forme ---------- */
-export function initBooking({ updateWhatsAppLinks }) {
+export function initBooking({ updateWhatsAppLinks, isBlocked }) {
+  if (isBlocked) isDateBlocked = isBlocked;
   const form = $('#booking');
   const el = form.elements;
   const submitBtn = $('#booking-submit');

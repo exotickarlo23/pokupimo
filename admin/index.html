@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pokupimo – upravljanje</title>
+  <meta name="theme-color" content="#123326">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="../assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="admin.css">
+  <!-- tema se postavlja prije iscrtavanja da nema bljeska -->
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('pokupi-admin-theme') || 'light'; } catch (e) {}
+  </script>
+  <script type="module" src="admin.js"></script>
+</head>
+<body>
+  <!-- ===== Prijava ===== -->
+  <main class="login" id="login" hidden>
+    <form class="login-card" id="login-form" novalidate>
+      <img src="../assets/img/logo-color.webp" width="377" height="113" alt="pokupimo" class="login-logo logo-light">
+      <img src="../assets/img/logo-white.webp" width="377" height="113" alt="pokupimo" class="login-logo logo-dark">
+      <h1>Upravljanje</h1>
+      <p class="muted">Prijavi se za pregled rezervacija, troškova i sadržaja.</p>
+      <div class="alert" id="login-error" role="alert" hidden></div>
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" autocomplete="username" required>
+      <label for="login-password">Lozinka</label>
+      <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+      <button type="submit" class="btn btn-primary" id="login-submit">Prijava</button>
+    </form>
+  </main>
+
+  <!-- ===== Aplikacija ===== -->
+  <div class="app" id="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <img src="../assets/img/logo-color.webp" width="377" height="113" alt="pokupimo" class="logo-light">
+        <img src="../assets/img/logo-white.webp" width="377" height="113" alt="pokupimo" class="logo-dark">
+        <p class="muted small">Upravljanje</p>
+      </div>
+      <nav class="nav" aria-label="Glavni izbornik">
+        <p class="nav-group">Poslovanje</p>
+        <a href="#pregled" data-view="pregled"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg>Pregled</a>
+        <a href="#rezervacije" data-view="rezervacije"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.500 6h.010M3.500 12h.010M3.500 18h.010"/></svg>Rezervacije <span class="nav-count" id="nav-new" hidden></span></a>
+        <a href="#kalendar" data-view="kalendar"><svg viewBox="0 0 24 24"><rect x="3.500" y="5" width="17" height="15.500" rx="3"/><path d="M3.500 10h17M8 2.800v4M16 2.800v4"/></svg>Kalendar</a>
+        <a href="#troskovi" data-view="troskovi"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg>Troškovnik</a>
+        <p class="nav-group">Sadržaj</p>
+        <a href="#tekstovi" data-view="tekstovi"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13.500 6.500l4 4"/></svg>Tekstovi i cijene</a>
+      </nav>
+      <div class="sidebar-foot">
+        <a class="side-btn" href="../" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>Otvori stranicu</a>
+        <button type="button" class="side-btn" id="theme-toggle"><svg viewBox="0 0 24 24"><path d="M20 14.500A8 8 0 0 1 9.500 4 8 8 0 1 0 20 14.500Z"/></svg><span>Tamni mod</span></button>
+        <button type="button" class="side-btn" id="password-open"><svg viewBox="0 0 24 24"><rect x="4" y="10.500" width="16" height="10" rx="2.500"/><path d="M8 10.500V7.500a4 4 0 0 1 8 0v3"/></svg>Promijeni lozinku</button>
+        <button type="button" class="side-btn" id="logout"><svg viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 16l-4-4 4-4M6 12h10"/></svg>Odjava</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="icon-btn" id="menu-toggle" aria-label="Izbornik" aria-controls="sidebar" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <h1 id="view-title">Pregled</h1>
+        <div class="topbar-actions" id="view-actions"></div>
+      </header>
+      <div class="alert" id="app-error" role="alert" hidden></div>
+      <div class="view" id="view" aria-live="polite"></div>
+    </div>
+    <div class="backdrop" id="backdrop" hidden></div>
+  </div>
+
+  <!-- ===== Dijalozi ===== -->
+  <dialog class="dialog" id="dialog">
+    <form method="dialog" class="dialog-inner" id="dialog-form" novalidate>
+      <header class="dialog-head">
+        <h2 id="dialog-title"></h2>
+        <button type="button" class="icon-btn" data-close aria-label="Zatvori"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </header>
+      <div class="dialog-body" id="dialog-body"></div>
+      <footer class="dialog-foot" id="dialog-foot"></footer>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p style="padding:2rem">Za dashboard je potreban JavaScript.</p></noscript>
+</body>
+</html>
